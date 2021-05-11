@@ -1,0 +1,39 @@
+$gold: rgb(206, 0, 0);
+h2{
+    font-size: xx-large;
+    font-weight: 800;
+    text-align: center;
+}
+
+.price{
+    font-weight: 700;
+    padding: 5px;
+    color: $gold;
+}
+
+.container{
+    width: 1120px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto;
+}
+.item{
+    width: 250px;
+    margin: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgb(255, 249, 220);
+    opacity: 1;
+    img{
+        width: 100%;
+        transition: 0.5s;
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+    
+}
+words{
+    padding: 25px;
+}

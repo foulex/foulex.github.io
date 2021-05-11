@@ -1,0 +1,50 @@
+h2 {
+  font-size: xx-large;
+  font-weight: 800;
+  text-align: center;
+}
+
+.price {
+  font-weight: 700;
+  padding: 5px;
+  color: #ce0000;
+}
+
+.container {
+  width: 1120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: auto;
+}
+
+.item {
+  width: 250px;
+  margin: 15px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fff9dc;
+  opacity: 1;
+}
+
+.item img {
+  width: 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.item img:hover {
+  opacity: 0.5;
+}
+
+words {
+  padding: 25px;
+}
+/*# sourceMappingURL=fumeanstore.css.map */
