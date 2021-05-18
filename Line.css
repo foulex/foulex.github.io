@@ -91,6 +91,7 @@ header nav .language .drop-down-menu li {
 
 .background .text h1 {
   font-size: 140px;
+  white-space: nowrap;
 }
 
 .background .text h3 {
