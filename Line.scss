@@ -48,7 +48,19 @@ header{
         }
         .language{
             display: flex;
-            .drop-down-menu{ display: none; }
+            .drop-down-menu{
+                display: none;
+                width: 70px;
+                text-align: center;
+                border: 1px solid black; 
+                background-color: white;
+                color: rgb(100, 100, 100);
+                position: absolute;
+                top: 60px;
+                li{
+                    margin: 15px;
+                }
+            }
         }
     }
 }
@@ -103,17 +115,56 @@ header{
 }
 
 
-#menu-control{ display: none; }
-#menu-control:checked ~ .language .drop-down-menu{
-    display: block;
-    position: absolute;
+.footer{
+    flex-direction: row;
+    width: 1300px;
+    font-size: 12px;
+    margin: auto;
+    text-align: left;
+    padding:  30px;
+    justify-content: center;
+    p{
+        display: inline;
+        padding: 0px 40px;
+    }
+    a{
+        display: inline;
+    }
+    a+a::before{
+        content: '|';
+        padding: 0px 10px;
+    }
 }
 
-@media screen and (max-width:767px) {
+#menu-control{ display: none; }
+#menu-control:checked ~ .language {
+    .drop-down-menu{
+        display: block;
+        // border: springgreen 2px solid;
+    }
+
+}
+
+@media screen and (max-width:860px) {
     header{
+        color: white;
+        background-color: rgba(255, 255, 255, 0);
         nav{
             .select{
                 display: none;
+            }
+        }
+    }
+    .background{
+        .text{
+            margin: 260px 20px;
+            h1{
+                font-size: 48px;
+            }
+            h3{
+                font-size: 16px;
+                margin: 10px 0px;
+
             }
         }
     }
