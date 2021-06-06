@@ -1,0 +1,5 @@
+nav .navbar-brand::after {
+  content: 'developer career builder';
+  display: block;
+}
+/*# sourceMappingURL=BuildSchool.css.map */

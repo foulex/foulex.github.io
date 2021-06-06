@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,GADD,CACC,aAAa,AAAA,OAAO,CAAA;EAChB,OAAO,EAAE,0BAA0B;EACnC,OAAO,EAAE,KAAK;CACjB",
+    "sources": [
+        "BuildSchool.scss"
+    ],
+    "names": [],
+    "file": "BuildSchool.css"
+}
