@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon昇級版作業</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+<body>
+    <div class="jumbotron">
+        <h1>Pokemon圖鑑列表</h1>
+    </div>
+    <button class="btn btn-dark" id="cp">點擊+1</button>
+    <button class="btn btn-dark" id="cm">點擊-1</button>
+    <button class="btn btn-primary" id="loadAll">載入全部</button>
+    <button class="btn btn-danger" id="reset">重置</button>
+    <button class="btn btn-info" id="timer">Timer(每0.5秒創造一張)</button>
+    <button class="btn btn-info" id="timer_stop">Stop Timer</button>
+
+    <div id='container'></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        let container = document.getElementById("container");
+        var PokemonCount = 0;
+
+        //Plus
+        var btn_cp = document.getElementById("cp");
+        btn_cp.addEventListener('click', function (plus) {
+            PokemonCount++;
+            AddPokemon(PokemonCount);
+        })
+        //Minus
+        var btn_cm = document.getElementById("cm");
+        btn_cm.addEventListener('click', function (minus) {
+            container.removeChild(container.lastChild);
+            PokemonCount--;
+        })
+        //loadAll
+        var btn_loadAll = document.getElementById("loadAll");
+        btn_loadAll.addEventListener('click', function (loadAll) {
+            for (var PokemonCount = 1; PokemonCount <= 898; PokemonCount++) {
+                AddPokemon(PokemonCount);
+            }
+        });
+        //Reset
+        document.getElementById("reset").addEventListener('click', function (reset) {
+            container.innerHTML = '';
+            var PokemonCount = 0;
+        });
+        //Timer
+        var btn_Timer = document.getElementById("timer");
+        btn_Timer.addEventListener('click', function () {
+            btn_Timer.disabled = true;
+            var PokeLay = setInterval(function () {
+                PokemonCount++;
+                AddPokemon(PokemonCount);
+            }, 500)
+        })
+
+        //Timer Reset
+        var btn_Timer_Stop = document.getElementById("timer_stop");
+        btn_Timer_Stop.addEventListener('click', function () {
+            if (btn_Timer.disabled == true) {
+                btn_Timer.disabled = false;
+                clearInterval(PokeLay);
+            }
+        })
+        //AppendChild
+        function AddPokemon(PokemonCount) {
+            let fileName = PokemonCount.toString().padStart(3, '0'); //補0
+            let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+            let img = document.createElement('img');
+            img.setAttribute('src', pathFile);
+            container.appendChild(img);
+            img.addEventListener('click', function () {
+                Remove(img);
+            })
+        }
+        //RemoveChild
+        function Remove(img) {
+            container.removeChild(img);
+        }
+    </script>
+</body>
+
+</html>
