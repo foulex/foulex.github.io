@@ -11,6 +11,11 @@
         display: flex;
         justify-content: center;
     }
+    .form{
+        border: 2px solid black;
+        margin: 25px;
+        padding: 10px;
+    }
 h1{
     color: rgb(117, 1, 45);
 }
@@ -28,7 +33,7 @@ h1{
 
 </style>
 <body>
-    <div class="no1">
+    <div class="ult form">
         <h1>1.終極密碼</h1>
         <h3 class="ult number">？～？</h3>
         <button class="ult reset">產生數字</button><br>
@@ -41,11 +46,14 @@ h1{
         </div>
     </div>
 
-<div class="no2">
+<div class="guess form">
     <h1>2.猜數字(幾A幾B)</h1>
+    <button class="guess start">開始</button><button class="guess reset">重來</button><button class="guess ans">解答</button><br>
+    <input type="guess" text>
+
 </div>
 
-<div class="no3">
+<div class="no3 form">
     <h1>3.計算機</h1>
 </div>
 
