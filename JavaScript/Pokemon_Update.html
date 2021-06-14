@@ -36,13 +36,13 @@
     <script>
 
         let container = document.getElementById("container");
-        var PokemonCount = 0;
+        let PokemonCount = 1;
 
         //Plus
         var btn_cp = document.getElementById("cp");
         btn_cp.addEventListener('click', function (plus) {
-            PokemonCount++;
             AddPokemon(PokemonCount);
+            PokemonCount++;
         })
         //Minus
         var btn_cm = document.getElementById("cm");
@@ -53,14 +53,14 @@
         //loadAll
         var btn_loadAll = document.getElementById("loadAll");
         btn_loadAll.addEventListener('click', function (loadAll) {
-            for (var PokemonCount = 1; PokemonCount <= 898; PokemonCount++) {
+            for (let PokemonCount = 1; PokemonCount <= 898; PokemonCount++) {
                 AddPokemon(PokemonCount);
             }
         });
         //Reset
         document.getElementById("reset").addEventListener('click', function (reset) {
             container.innerHTML = '';
-            var PokemonCount = 0;
+            PokemonCount = 1;
         });
         //Timer
         var btn_Timer = document.getElementById("timer");
