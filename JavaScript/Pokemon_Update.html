@@ -62,11 +62,12 @@
             container.innerHTML = '';
             PokemonCount = 1;
         });
+        var PokeLay;
         //Timer
         var btn_Timer = document.getElementById("timer");
         btn_Timer.addEventListener('click', function () {
             btn_Timer.disabled = true;
-            var PokeLay = setInterval(function () {
+            PokeLay = setInterval(function () {
                 PokemonCount++;
                 AddPokemon(PokemonCount);
             }, 500)

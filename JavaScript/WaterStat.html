@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水庫水量</title>
+</head>
+<style>
+    table{
+        border: 10px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<body>
+    <script>
+        let WaterData = [
+            { Name: '新山水庫', Capacity: 933.50,   Increase: 0.35, Update: '2021-06-14(8時)' },
+            { Name: '翡翠水庫', Capacity: 29126.14, Increase: 0.08, Update: '2021-06-14(13時)' },
+            { Name: '石門水庫', Capacity: 9806.87,  Increase: 3.57, Update: '2021-06-14(13時)' },
+            { Name: '寶山水庫', Capacity: 228.18,   Increase: 3.46, Update: '2021-06-14(7時)' },
+            { Name: '明德水庫', Capacity: 729.86,   Increase: 0,    Update: '2021-06-14(7時)' },
+        ]
+        let table = document.getElementsByTagName('table');
+        let tr    = document.createElement('tr');
+        let td    = document.createElement('td');
+
+        // tr.appendChild(td);
+
+        document.body.onload = WaterStat();
+
+        function WaterStat() {
+            for (let i = 0; i <= WaterData.length; i++) {
+                for (j = 0; j <= WaterData[i].length; j++) {
+                    tr.appendChild(td.innerText=`${WaterData.Name[j]}`);
+                }
+            }
+        }
+
+
+    </script>
+
+    <table>
+        <caption>水庫水量</caption>
+
+    </table>
+</body>
+
+</html>
