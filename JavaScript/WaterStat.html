@@ -5,16 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>水庫水量</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>台灣水庫即時水情</title>
 </head>
-<style>
-    table{
-        border: 10px solid black;
-        border-collapse: collapse;
-    }
-</style>
+
 <body>
+    <div class="jumbotron text-center">
+        <h1>台灣水庫即時水情</h1>
+    </div>
+
+    <div class="container-xxl" id="container">
+    </div>
+
     <script>
+        let Titles = ['水庫名稱', '有效蓄水量(萬立方公尺)', '增加速率(%)', '更新時間'];
         let WaterData = [
             { Name: '新山水庫', Capacity: 933.50,   Increase: 0.35, Update: '2021-06-14(8時)' },
             { Name: '翡翠水庫', Capacity: 29126.14, Increase: 0.08, Update: '2021-06-14(13時)' },
@@ -22,29 +27,55 @@
             { Name: '寶山水庫', Capacity: 228.18,   Increase: 3.46, Update: '2021-06-14(7時)' },
             { Name: '明德水庫', Capacity: 729.86,   Increase: 0,    Update: '2021-06-14(7時)' },
         ]
-        let table = document.getElementsByTagName('table');
-        let tr    = document.createElement('tr');
-        let td    = document.createElement('td');
+        let container = document.getElementById('container');
+        let table = document.createElement('table');
+        table.setAttribute("class", "table table-bordered table-striped table-light");
 
-        // tr.appendChild(td);
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
 
-        document.body.onload = WaterStat();
-
-        function WaterStat() {
-            for (let i = 0; i <= WaterData.length; i++) {
-                for (j = 0; j <= WaterData[i].length; j++) {
-                    tr.appendChild(td.innerText=`${WaterData.Name[j]}`);
-                }
-            }
+        window.onload = function () {
+            createTable();
+            container.appendChild(table);
         }
 
+        function createTable() {
+            addThead(thead, Titles);
+            addTbody(WaterData);
+        }
+
+        function addThead(thead, Titles) {
+            let tr = document.createElement('tr');
+            Titles.forEach(function (item) {
+                let td = document.createElement('td');
+                let tdText = document.createTextNode(item);
+                td.appendChild(tdText);
+            });
+            thead.appendChild(tr);
+            table.appendChild(thead);
+        }
+
+        function addTbody(data) {
+            data.forEach(function (item) {
+                let tr = document.createElement('tr');
+                let value = Object.values(item);
+                value.forEach(function (col) {
+                    let td = document.createElement('td');
+                    td.innerHTML = col;
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+                table.appendChild(tbody);
+            });
+        }
 
     </script>
-
-    <table>
-        <caption>水庫水量</caption>
-
-    </table>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
