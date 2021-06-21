@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20210608助教日題目</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form {
+        border: 2px solid black;
+        margin: 25px;
+        padding: 10px;
+    }
+
+    h1 {
+        color: rgb(117, 1, 45);
+    }
+
+    button {
+        width: 100px;
+        height: 50px;
+        background-color: rgb(61, 245, 153);
+    }
+</style>
+
+<body>
+    <div class="ult form">
+        <h1>1.終極密碼</h1>
+        <h3 class="number">０～１００</h3>
+        <button class="reset">開始/重置</button><button class="start">產生數字</button><br>
+        <input for="text" id="input" value="" placeholder="輸入數字" class="ult text-center">
+        <div class="pad">
+            <button class="num">1</button><button class="num">2</button><button class="num">3</button><br>
+            <button class="num">4</button><button class="num">5</button><button class="num">6</button><br>
+            <button class="num">7</button><button class="num">8</button><button class="num">9</button><br>
+            <button class="check">✓</button><button class="num">0</button><button class="negetive">×</button><br>
+        </div>
+    </div>
+
+    <script>
+        //終極密碼
+        let reset = document.getElementsByClassName(".reset");
+            reset.addEventListener('click', ABC)
+
+            function ABC(){
+                alert('a');
+            }
+
+        let numInput = document.getElementById("input");
+
+        // document.querySelectorAll(".num").forEach(x => x.AddEventListener('click', function () {
+        //     numInput.value += x.innerText;
+        // }))
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
